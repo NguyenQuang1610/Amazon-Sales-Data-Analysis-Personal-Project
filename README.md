@@ -1,5 +1,4 @@
 # Amazon-Sale-Report-Project (E-commerce)
-This personal project covers my proficiency in Data Analysis using Excel, Power BI, MySQL, and Python.
 
 Overview
 This project analyzes e-commerce order data to uncover key business insights. We explore sales performance, shipping trends, and customer behavior, using Excel, SQL, Power BI, and Python.
@@ -19,9 +18,9 @@ Example:
 My Columns:
 
   - `index` : 
-  - `Order ID` : 
-  - `Date` : 
-  - `Status` : 
+  - `Order ID` : Unique identifier for each order
+  - `Date` : Date when the order is placed (Format: MM/DD/YYYY)
+  - `Status` : Status of order since it was placed
   - `Fulfilment` : 
   - `Sales Channel` : 
   - `ship-service-level` : 
@@ -56,6 +55,14 @@ My Columns:
 
 **Power BI Dashboard:**
 ![Sales Dashboard](images/dashboard_screenshots.png)
+- Connected to database in MySQL
+- Transform data: Select correct data format & type (Add geographical data categories to columns: ship_country,ship_postal_code)
+- Add calculated columns "ship_location" (combining ship_state, ship_country) using DAX formula & assigned "Place" category for consistent mapping
+- Added Map
+- Added Line graph
+- Added Slicer
+- Added Pie Chart for ship_status
+
 
 **Excel Analysis:**
 ![Pivot Table Insights](images/Excel_Analysis.png)
