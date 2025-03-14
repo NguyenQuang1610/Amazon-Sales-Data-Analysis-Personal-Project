@@ -35,7 +35,7 @@ SHOW VARIABLES LIKE 'local_infile';
 SET GLOBAL local_infile = 1;
 SET GLOBAL bulk_insert_buffer_size = 256000000;
 ALTER TABLE ecommerce_sales DISABLE KEYS;
-SET SQL_SAFE_UPDATES = 1;
+SET SQL_SAFE_UPDATES = 0;
 DELETE FROM ecommerce_sales;
 
 -- LOAD DATA FOR FASTER IMPORT
@@ -88,8 +88,37 @@ SELECT sales_channel, SKU, total_sales
 FROM ranked_sales
 WHERE SKU_rank = 1;
 
--- 
-           
+-- Create new column for correct date formatting
+ALTER TABLE ecommerce_sales
+ADD COLUMN order_date_new DATE;
+
+UPDATE ecommerce_sales
+SET order_date_new = STR_TO_DATE(order_date, '%m/%d/%Y');
+
+ALTER TABLE ecommerce_sales DROP COLUMN order_date;
+ALTER TABLE ecommerce_sales CHANGE order_date_new order_date DATE;
+
+SELECT order_date_new
+FROM ecommerce_sales;
+
+DESCRIBE ecommerce_sales;
+
+-- CALCULATE MOM GROWTH IN SALES
+WITH monthly_sales AS (
+	SELECT DISTINCT MONTHNAME(order_date) AS `month`, 
+		   SUM(amount) AS month_sales,
+		   LAG(SUM(amount)) OVER (ORDER BY MONTHNAME(order_date)) AS previous_sales
+	FROM ecommerce_sales
+	GROUP BY MONTHNAME(order_date) 
+	ORDER BY MONTHNAME(order_date) ASC
+)
+SELECT `month`,
+	   month_sales,
+       previous_sales,
+	   ROUND((((month_sales - previous_sales) / previous_sales) * 100), 2) AS mom_sales_growth
+FROM monthly_sales;
+
+-- RANK TOP-5 FASTEST GROWING PRODUCT CATEGORY
 
 
 

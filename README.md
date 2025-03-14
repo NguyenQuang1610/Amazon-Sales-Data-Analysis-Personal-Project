@@ -67,6 +67,13 @@ My Columns:
 **Excel Analysis:**
 ![Pivot Table Insights](images/Excel_Analysis.png)
 
+
+### ✅ **Phase 3: Advanced Analysis (DAX & SQL)**
+
+**SQL:**
+- Wrote query to find Month over Month Total Sales using CTEs and Window Functions (LAG())
+
+
 ## 📈 Key Insights
 - 💰 **Top-Selling Category:** Electronics  
 - 🚚 **Most Used Courier:** DHL  
