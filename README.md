@@ -47,7 +47,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - Most common shipping destinations  
 
 **Power BI Dashboard:**
-![Sales Dashboard](images/dashboard_screenshots.png)
+![Sales Dashboard](images/dashboard_screenshot.png)
 - Connected to database in MySQL
 - Transform data: Select correct data format & type (Add geographical data categories to columns: ship_country,ship_postal_code)
 - Add calculated columns "ship_location" (combining ship_state, ship_country) using DAX formula & assigned "Place" category for consistent mapping
