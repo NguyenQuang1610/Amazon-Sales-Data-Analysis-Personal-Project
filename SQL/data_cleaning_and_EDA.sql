@@ -1,4 +1,4 @@
--- CREATE TABLE TO PREPARE FOR IMPORT
+-- CREATE TABLE TO PREPARE DATA IMPORT
 CREATE TABLE ecommerce_sales (
 	index_number INT,
     order_ID VARCHAR(30) PRIMARY KEY,
@@ -145,8 +145,7 @@ FROM sales_ranking
 GROUP BY category, growth_rate
 LIMIT 5;
 
--- IDENTIY ORDERS WITH DELAYED FULFILLMENT (based on Status and Courier Status)
-
+-- IDENTIFY ORDERS WITH DELAYED FULFILLMENT (based on Status and Courier Status)
 WITH ship_status_table AS (
 SELECT order_id,
 	   CASE WHEN ship_status IN ('Pending - Waiting for Pick Up', 'Pending', 'Shipped - Lost in Transit') THEN 'Delayed - Not Shipped'
@@ -177,6 +176,8 @@ GROUP BY ship_service_level
 SELECT socbsl.ship_service_level, ((socbsl.successful_orders / ocbsl.orders_count) * 100) courier_success_rate
 FROM success_orders_count_by_service_level socbsl
 JOIN orders_count_by_service_level ocbsl ON socbsl.ship_service_level = ocbsl.ship_service_level;
+
+-- IDENTIFY THE TOP REGIONS (STATE) WITH THE HIGHEST ORDER CANCELLATIONS
 
 
 

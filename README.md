@@ -65,7 +65,11 @@ This project analyzes e-commerce order data to uncover key business insights. We
 
 **SQL:**
 - Wrote query to find Month over Month Total Sales using CTEs and Window Functions (LAG())
-- Added query to find 
+- Added query to find Top-5 Fastest Growing Product Category
+- Added query to Identify Orders with Delayed Fulfillment
+- Added query to Analyze the Impact of Shipping Service Levels On Delivery Success
+- 
+
 
 ### ✅ **Phase 4: Predictive Insights & Automation**	
 
