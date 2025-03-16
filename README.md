@@ -36,10 +36,12 @@ This project analyzes e-commerce order data to uncover key business insights. We
 
 
 ## 📌 Process
-### ✅ **Phase 1: Data Cleaning**
-- Handled missing values & duplicates in SQL  
-- Standardized column names  
-- Fixed incorrect date formats  
+### ✅ **Phase 1: Data Cleaning & Importation**
+- Initial Data Cleaning (especially for the "ship_city" column), select correct date format, remove duplicates.
+- Imported dataset into SQL by creating table and optimized using LOAD INTO
+- Handled missing values & duplicates (SQL)
+- Standardized column names (Power Query)
+- Fixed incorrect date formats (Power Query)
 
 ### ✅ **Phase 2: Exploratory Data Analysis**
 - Top-selling product categories  
@@ -70,14 +72,18 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - Added query to Analyze the Impact of Shipping Service Levels On Delivery Success
 - 
 
+**Power BI:** (On-going)
+- 
 
-### ✅ **Phase 4: Predictive Insights & Automation**	
+
+### ✅ **Phase 4: Predictive Insights & Automation** (On-going)
 
 
-## 📈 Key Insights
-- 💰 **Top-Selling Category:** Electronics  
-- 🚚 **Most Used Courier:** DHL  
-- 🌍 **Top Market:** US & Germany  
+## 📈 Key Insights (On-going)
+- 💰 **Top-Selling Category:** Clothing Set
+- 🚚 **Shipping Service Level with Highest Shipping Success Rate:** Expedited (86.43% success rate)
+- 🚚 **Standard Service has a Major Shipping Problem, at:** Only 2.5% Shipping Success Rate
+- 🌍 **Top Markets (by State):** Rj, Orissa, and Ni in India.
 
 ## 💾 How to Use
 1. Download `dashboards.pbix` to explore the Power BI visualizations  
