@@ -6,7 +6,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 ## Important note: This dataset comprises one single table with no relationships. All the analysis is done subsequently. I'll have a project with more related tables in the future.
 
 ## 📊 Dataset
-- **Source:** Provided dataset
+- **Source:** https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data
 - **Size:** 74,538 rows, 23 columns
 - **Main Columns:**
 
