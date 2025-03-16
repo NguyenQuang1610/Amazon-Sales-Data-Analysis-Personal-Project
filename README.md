@@ -3,43 +3,36 @@
 Overview
 This project analyzes e-commerce order data to uncover key business insights. We explore sales performance, shipping trends, and customer behavior, using Excel, SQL, Power BI, and Python.
 
+## Important note: This dataset comprises one single table with no relationships. All the analysis is done subsequently. I'll have a project with more related tables in the future.
+
 ## 📊 Dataset
 - **Source:** Provided dataset
 - **Size:** 74,538 rows, 23 columns
 - **Main Columns:**
 
-Example:
-  - `Order ID`: Unique identifier for each order  
-  - `Date`: Order date  
-  - `Sales Channel`: Online or Offline sales  
-  - `Amount`: Revenue from each order  
-  - `Courier Status`: Whether the order was delivered on time
-
-My Columns:
-
-  - `index` : 
+  - `index` : Index number of the dataset. The dataset has mixed order as received from the raw file.
   - `Order ID` : Unique identifier for each order
   - `Date` : Date when the order is placed (Format: MM/DD/YYYY)
-  - `Status` : Status of order since it was placed
-  - `Fulfilment` : 
-  - `Sales Channel` : 
-  - `ship-service-level` : 
-  - `Style` : 
-  - `SKU` : 
-  - `Category` : 
-  - `Size` : 
-  - `ASIN` : 
-  - `Courier Status` : 
-  - `Qty` : 
-  - `currency` : 
-  - `Amount` : 
-  - `ship_city` : 
-  - `ship-state` : 
-  - `ship-postal-code` : 
-  - `ship-country` : 
-  - `promotion-ids` : 
-  - `B2B` : 
-  - `fulfilled-by` : 
+  - `Status` : Status of order since it was placed (Values: Shipped, Cancelled, Pending - Waiting for Pick Up, Shipped - Delivered to Buyer, Shipped - Returned to Seller, Pending, Shipped - Picked Up, Shipping, Shipped - Returning to Seller, Shipped - Out for Delivery, Shipped - Rejected by Buyer, Shipped - Damaged, Shipped - Lost in Transit)
+  - `Fulfilment` : Who are responsible for the fulfilment (Values: Amazon, Merchant)
+  - `Sales Channel` : (Values: Amazon.in, Non-Amazon)
+  - `ship-service-level` : (Values: Expedited, Standard)
+  - `Style` : The code for the style of the product
+  - `SKU` : SKU of the product category
+  - `Category` : Category of the product (Values: Kurta, Set, Top, Western Dress, Blouse, Bottom, Ethnic Dress, Saree, Dupatta)
+  - `Size` : Size of the product (Values: XL, M, L, XXL, 3XL, S, XS, 6XL, 5XL, 4XL, Free)
+  - `ASIN` : Amazon Standard Identification Number
+  - `Courier Status` : (Values: Shipped, Unshipped, Cancelled, [blank])
+  - `Qty` : How many products purchased in an order
+  - `currency` : Currency used for payment (Value(s): INR)
+  - `Amount` : The total money of the order
+  - `ship_city` : Destinated city to ship to
+  - `ship-state` : Destinated state to ship to 
+  - `ship-postal-code` : Destinated postal to ship to
+  - `ship-country` : (Values: IN)
+  - `promotion-ids` : Applied promotion ids for the order. This column has very long texts of all the applied promotions for the order.
+  - `B2B` : Whether if it's a B2B sales (Values: true, false)
+  - `fulfilled-by` : (Values: Not Specified, Easy Ship)
 
 
 ## 📌 Process
@@ -72,6 +65,9 @@ My Columns:
 
 **SQL:**
 - Wrote query to find Month over Month Total Sales using CTEs and Window Functions (LAG())
+- Added query to find 
+
+### ✅ **Phase 4: Predictive Insights & Automation**	
 
 
 ## 📈 Key Insights

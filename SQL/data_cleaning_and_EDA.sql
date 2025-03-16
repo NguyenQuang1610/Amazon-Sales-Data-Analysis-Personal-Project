@@ -119,7 +119,64 @@ SELECT `month`,
 FROM monthly_sales;
 
 -- RANK TOP-5 FASTEST GROWING PRODUCT CATEGORY
+WITH sales_by_category_previous AS (
+SELECT RANK() OVER (PARTITION BY MONTH(order_date) ORDER BY SUM(amount) DESC) AS `rank`,
+	   category,
+       MONTH(order_date) AS `month`,
+	   SUM(amount) AS latest_month_sales,
+       LAG(SUM(amount)) OVER (PARTITION BY category) AS previous_sales
+FROM ecommerce_sales
+GROUP BY category, MONTH(order_date)
+ORDER BY SUM(amount) DESC
+), 
+sales_ranking AS (
+SELECT /*RANK() OVER (PARTITION BY category ORDER BY (((latest_month_sales - previous_sales) / previous_sales) * 100) DESC) AS ranking, */
+       category,
+       `month`,
+	   (((latest_month_sales - previous_sales) / previous_sales) * 100) AS growth_rate
+FROM sales_by_category_previous
+GROUP BY category, (((latest_month_sales - previous_sales) / previous_sales) * 100), `month`
+ORDER BY (((latest_month_sales - previous_sales) / previous_sales) * 100)
+)
+SELECT RANK() OVER (ORDER BY growth_rate DESC) AS ranking,
+	   category,
+	   growth_rate
+FROM sales_ranking
+GROUP BY category, growth_rate
+LIMIT 5;
 
+-- IDENTIY ORDERS WITH DELAYED FULFILLMENT (based on Status and Courier Status)
+
+WITH ship_status_table AS (
+SELECT order_id,
+	   CASE WHEN ship_status IN ('Pending - Waiting for Pick Up', 'Pending', 'Shipped - Lost in Transit') THEN 'Delayed - Not Shipped'
+			WHEN ship_status LIKE 'Shipped%' AND courier_status IN ('Unshipped', 'Cancelled', '') THEN 'Delayed - Shipping Issue'
+       ELSE 'On Trank'
+       END AS shipping_status
+FROM ecommerce_sales
+)
+SELECT order_id, shipping_status
+FROM ship_status_table
+WHERE shipping_status IN ('Delayed - Not Shipped', 'Delayed - Shipping Issue')
+ORDER BY shipping_status;
+
+-- ANALYZE THE IMPACT OF SHIPPING SERVICE LEVELS (ship_service_level) ON DELIVERY SUCCESS.
+-- Counting orders by ship service level
+WITH orders_count_by_service_level AS (
+SELECT COUNT(order_id) orders_count, ship_service_level
+FROM ecommerce_sales
+GROUP BY ship_service_level
+),
+success_orders_count_by_service_level AS (
+SELECT COUNT(order_id) successful_orders, ship_service_level
+FROM ecommerce_sales 
+WHERE ship_status IN ('Shipped', 'Shipped -Delivered to Buyer')
+AND courier_status = 'Shipped'
+GROUP BY ship_service_level
+)
+SELECT socbsl.ship_service_level, ((socbsl.successful_orders / ocbsl.orders_count) * 100) courier_success_rate
+FROM success_orders_count_by_service_level socbsl
+JOIN orders_count_by_service_level ocbsl ON socbsl.ship_service_level = ocbsl.ship_service_level;
 
 
 
