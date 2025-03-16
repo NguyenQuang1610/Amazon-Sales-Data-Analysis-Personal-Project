@@ -70,7 +70,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - Added query to find Top-5 Fastest Growing Product Category
 - Added query to Identify Orders with Delayed Fulfillment
 - Added query to Analyze the Impact of Shipping Service Levels On Delivery Success
-- 
+- Added query to find the regions (states) with the highest rate of cancellation relative to number of orders: Himachal Pradesh (449 orders, 110 cancellations/returns)
 
 **Power BI:** (On-going)
 - 

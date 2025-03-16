@@ -178,8 +178,26 @@ FROM success_orders_count_by_service_level socbsl
 JOIN orders_count_by_service_level ocbsl ON socbsl.ship_service_level = ocbsl.ship_service_level;
 
 -- IDENTIFY THE TOP REGIONS (STATE) WITH THE HIGHEST ORDER CANCELLATIONS
-
-
-
-
+WITH cancelled_orders_table AS (
+SELECT ship_state, COUNT(order_id) cancelled_orders
+FROM ecommerce_sales
+WHERE ship_status IN ('Cancelled', 'Shipped - Returned to Seller', 'Shipped - Returning to Seller', 'Shipped - Rejected by Buyer')
+GROUP BY ship_state
+ORDER BY cancelled_orders DESC
+),
+total_orders_by_state AS (
+SELECT ship_state, COUNT(order_id) total_orders
+FROM ecommerce_sales
+GROUP BY ship_state
+ORDER BY COUNT(order_id) DESC
+)
+SELECT tobs.ship_state,
+	   tobs.total_orders,
+       cot.cancelled_orders,
+	   ROUND((((cot.cancelled_orders / tobs.total_orders) * 100 )), 2) cancellation_rate
+FROM cancelled_orders_table cot
+JOIN total_orders_by_state tobs ON tobs.ship_state = cot.ship_state
+GROUP BY cot.ship_state
+ORDER BY ROUND((((cot.cancelled_orders / tobs.total_orders) * 100 )), 2) DESC, total_orders DESC
+LIMIT 10;
 
