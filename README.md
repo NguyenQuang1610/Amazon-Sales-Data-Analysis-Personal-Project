@@ -83,7 +83,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - 💰 **Top-Selling Category:** Clothing Set
 - 🚚 **Shipping Service Level with Highest Shipping Success Rate:** Expedited (86.43% success rate)
 - 🚚 **Standard Service has a Major Shipping Problem, at:** Only 2.5% Shipping Success Rate
-- 🌍 **Top Markets (by State):** Rj, Orissa, and Ni in India.
+- 🌍 **Top Markets (by Sales Amount/State):**  Maharashtra (INR 7,879,715.27)
 
 ## 💾 How to Use
 1. Download `dashboards.pbix` to explore the Power BI visualizations  
