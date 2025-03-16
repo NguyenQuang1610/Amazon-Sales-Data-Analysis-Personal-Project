@@ -70,7 +70,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - Added query to find Top-5 Fastest Growing Product Category
 - Added query to Identify Orders with Delayed Fulfillment
 - Added query to Analyze the Impact of Shipping Service Levels On Delivery Success
-- Added query to find the regions (states) with the highest rate of cancellation relative to number of orders: Himachal Pradesh (449 orders, 110 cancellations/returns)
+- Added query to find the regions (states) with the highest rate of cancellation.
 
 **Power BI:** (On-going)
 - 
@@ -84,6 +84,8 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - 🚚 **Shipping Service Level with Highest Shipping Success Rate:** Expedited (86.43% success rate)
 - 🚚 **Standard Service has a Major Shipping Problem, at:** Only 2.5% Shipping Success Rate
 - 🌍 **Top Markets (by Sales Amount/State):**  Maharashtra (INR 7,879,715.27)
+- 🌍 **The regions (states) with the highest rate of cancellation relative to number of orders:** Himachal Pradesh (449 orders, 110 cancellations/returns)
+
 
 ## 💾 How to Use
 1. Download `dashboards.pbix` to explore the Power BI visualizations  
