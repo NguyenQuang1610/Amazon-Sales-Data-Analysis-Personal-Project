@@ -8,6 +8,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 ## 📊 Dataset
 - **Source:** https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data
 - **Size:** 74,538 rows, 23 columns
+- **Time Range:** From 30 April 2022 to 30 June 2022
 - **Main Columns:**
 
   - `index` : Index number of the dataset. The dataset has mixed order as received from the raw file.
@@ -74,6 +75,8 @@ This project analyzes e-commerce order data to uncover key business insights. We
 
 **Power BI:** (On-going)
 - Created a Running Total of Amount over the 3-month period. ('Phase 3' sheet)
+- Created Measure to compute Month-to-Date (MTD) Sales.
+- Created Measure to Calculate % of orders by Sales Channel (Amazon.in vs Non-Amazon)
 
 
 ### ✅ **Phase 4: Predictive Insights & Automation** (On-going)
