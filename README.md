@@ -73,7 +73,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - Added query to find the regions (states) with the highest rate of cancellation.
 
 **Power BI:** (On-going)
-- 
+- Created a Running Total of Amount over the 3-month period. ('Phase 3' sheet)
 
 
 ### ✅ **Phase 4: Predictive Insights & Automation** (On-going)
@@ -90,5 +90,4 @@ This project analyzes e-commerce order data to uncover key business insights. We
 ## 💾 How to Use
 1. Download `dashboards.pbix` to explore the Power BI visualizations  
 2. Open `analysis.xlsx` to see Excel pivot tables  
-
 ---
