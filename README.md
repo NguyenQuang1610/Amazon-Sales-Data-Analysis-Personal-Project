@@ -77,6 +77,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 - Created a Running Total of Amount over the 3-month period. ('Phase 3' sheet)
 - Created Measure to compute Month-to-Date (MTD) Sales.
 - Created Measure to Calculate % of orders by Sales Channel (Amazon.in vs Non-Amazon)
+- Created Measure to estimate short-term sales trends using Moving Averages.
 
 
 ### ✅ **Phase 4: Predictive Insights & Automation** (On-going)
