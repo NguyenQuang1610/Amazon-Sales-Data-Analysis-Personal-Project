@@ -82,6 +82,7 @@ This project analyzes e-commerce order data to uncover key business insights. We
 
 
 ### ✅ **Phase 4: Predictive Insights & Automation** (On-going)
+- Import Data from cleaned CSV file
 
 
 ## 📈 Key Insights (On-going)
